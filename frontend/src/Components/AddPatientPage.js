@@ -12,11 +12,11 @@ function AddPatientPage() {
   const [showEditSection, setShowEditSection] = useState(false); // Only show extra forms after clicking "Edit"
    
     const [searchTerm, setSearchTerm] = useState("");
-      const token = localStorage.getItem("token");
+      // const token = localStorage.getItem("token");
   const role = localStorage.getItem("role");
-  const handlePatientAdded = (id) => {
-    setPatientId(id);
-  };
+  // const handlePatientAdded = (id) => {
+  //   setPatientId(id);
+  // };
    const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
   const handleEditClick = () => {
     setShowEditSection(true);

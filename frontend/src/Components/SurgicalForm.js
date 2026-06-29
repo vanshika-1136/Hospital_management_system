@@ -24,14 +24,14 @@ function SurgicalForm({ patientId, token }) {
     alert('Surgical record saved!');
   };
 
-  const fetchDailyRecords = async (patientId, date) => {
-  const res = await axios.get(
-    `http://https://hospital-management-backend-mqyh.onrender.com/api/patients/surgical-history/${patientId}/${date}`,
-    { headers: { Authorization: `Bearer ${token}` } }
-  );
-  console.log(res.data);
-};
-
+//   const fetchDailyRecords = async (patientId, date) => {
+//   const res = await axios.get(
+//     `http://https://hospital-management-backend-mqyh.onrender.com/api/patients/surgical-history/${patientId}/${date}`,
+//     { headers: { Authorization: `Bearer ${token}` } }
+//   );
+//   console.log(res.data);
+// };
+git
 
   return (
 <form onSubmit={handleSubmit} className="space-y-4 bg-white shadow-md rounded p-6 mt-4 max-w-xl">
