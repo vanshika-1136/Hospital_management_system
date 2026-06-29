@@ -10,12 +10,22 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const pool = new Pool({
-  user: process.env.PG_USER,
-  host: process.env.PG_HOST,
-  database: process.env.PG_DATABASE,
-  password: process.env.PG_PASSWORD,
-  port: process.env.PG_PORT,
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+  // host: process.env.PG_HOST,
+  // port: process.env.PG_PORT,
+  // user: process.env.PG_USER,
+  // password: process.env.PG_PASSWORD,
+  // database: process.env.PG_DATABASE,
 });
 
 export default pool;
+
+console.log("Connected DB:", process.env.PG_DATABASE);
+pool.query('SELECT current_database()', (err, res) => {
+  if (err) console.log(err);
+  else console.log("Actual DB:", res.rows[0].current_database);
+});
 
