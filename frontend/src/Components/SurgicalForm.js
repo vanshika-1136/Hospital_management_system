@@ -31,7 +31,6 @@ function SurgicalForm({ patientId, token }) {
 //   );
 //   console.log(res.data);
 // };
-git
 
   return (
 <form onSubmit={handleSubmit} className="space-y-4 bg-white shadow-md rounded p-6 mt-4 max-w-xl">
