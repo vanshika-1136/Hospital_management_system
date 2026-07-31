@@ -1,0 +1,102 @@
+import {
+  LayoutDashboard,
+  User,
+  CalendarDays,
+  FileText,
+  ClipboardList,
+  LogOut,
+} from "lucide-react";
+
+import { NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
+
+const PatientSidebar = () => {
+  const navigate = useNavigate();
+  const { logout } = useAuth();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
+
+  const menuItems = [
+    {
+      title: "Dashboard",
+      icon: <LayoutDashboard size={20} />,
+      path: "/patient/dashboard",
+    },
+    {
+      title: "My Profile",
+      icon: <User size={20} />,
+      path: "/patient/profile",
+    },
+    {
+      title: "Appointments",
+      icon: <CalendarDays size={20} />,
+      path: "/patient/appointments",
+    },
+    {
+      title: "Medical Records",
+      icon: <ClipboardList size={20} />,
+      path: "/patient/records",
+    },
+    {
+      title: "Reports",
+      icon: <FileText size={20} />,
+      path: "/patient/reports",
+    },
+  ];
+
+  return (
+    <aside className="w-72 min-h-screen bg-slate-900 text-white flex flex-col">
+
+      {/* Logo */}
+
+      <div className="h-20 flex items-center justify-center border-b border-slate-700">
+        <h1 className="text-2xl font-bold text-cyan-400">
+          🏥 HospitalMS
+        </h1>
+      </div>
+
+      {/* Menu */}
+
+      <nav className="flex-1 mt-6 px-4">
+
+        {menuItems.map((item) => (
+          <NavLink
+            key={item.title}
+            to={item.path}
+            className={({ isActive }) =>
+              `flex items-center gap-3 p-3 rounded-xl mb-2 transition-all ${
+                isActive
+                  ? "bg-cyan-500 text-white"
+                  : "hover:bg-slate-800"
+              }`
+            }
+          >
+            {item.icon}
+            <span>{item.title}</span>
+          </NavLink>
+        ))}
+
+      </nav>
+
+      {/* Logout */}
+
+      <div className="p-4 border-t border-slate-700">
+
+        <button
+          onClick={handleLogout}
+          className="w-full flex items-center justify-center gap-3 bg-red-500 hover:bg-red-600 py-3 rounded-xl"
+        >
+          <LogOut size={18} />
+          Logout
+        </button>
+
+      </div>
+
+    </aside>
+  );
+};
+
+export default PatientSidebar;
