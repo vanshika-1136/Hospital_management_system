@@ -3,13 +3,14 @@ import DoctorSidebar from "./DoctorSidebar";
 import Navbar from "./Navbar";
 import PatientSidebar from "./PatientSidebar";
 import { useAuth } from "../../context/AuthContext";
-
+import { NavLink } from "react-router-dom";
 const Layout = ({ children }) => {
   const { user } = useAuth();
  console.log("Logged in user:", user);
  console.log("Current Role:", user?.role_name);
   const renderSidebar = () => {
     switch (user?.role_name) {
+      
       case "Admin":
         return <AdminSidebar />;
 
@@ -19,12 +20,38 @@ const Layout = ({ children }) => {
       case "Patient":
       return <PatientSidebar />;
       
-      case "ICU Head":
-        return (
-          <div className="w-72 bg-slate-900 text-white flex items-center justify-center">
-            ICU Sidebar
-          </div>
-        );
+case "ICU Head":
+  return (
+    <aside className="w-72 min-h-screen bg-slate-900 text-white">
+
+      <div className="h-20 flex items-center justify-center border-b border-slate-700">
+
+        <h1 className="text-2xl font-bold text-cyan-400">
+          🏥 HospitalMS
+        </h1>
+
+      </div>
+
+      <nav className="p-4 mt-6">
+
+        <NavLink
+          to="/icu/dashboard"
+          className={({ isActive }) =>
+            `flex items-center gap-3 p-3 rounded-xl ${
+              isActive
+                ? "bg-cyan-500"
+                : "hover:bg-slate-800"
+            }`
+          }
+        >
+          ICU Dashboard
+        </NavLink>
+
+      </nav>
+
+    </aside>
+  );
+
       default:
         return null;
     }

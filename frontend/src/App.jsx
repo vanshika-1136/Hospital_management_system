@@ -17,11 +17,9 @@ import Appointments from "./pages/Doctor/Appointments";
 import MedicalRecords from "./pages/Doctor/MedicalRecords";
 import Reports from "./pages/Doctor/Reports";
 import PatientDashboard from "./pages/Patient/Dashboard";
+import ICUDashboard from "./pages/ICU/Dashboard";
 
 
-function ICUDashboard() {
-  return <h1>ICU Head Dashboard</h1>;
-}
 
 function App() {
   return (

@@ -9,6 +9,7 @@ import commentRoute from './routes/commentRoute.js';
 import patientRecordsRoutes from './routes/patientRecords.js';
 import settingsRoutes from './routes/settings.js';
 import userRoute from './routes/userRoute.js';
+import icuDashboardRoutes from "./routes/icu.dashboard.routes.js";
 dotenv.config();
 
 const app = express();
@@ -30,7 +31,7 @@ app.use('/api', icuHeadRoute);     // ICU Head dashboard API
 app.use('/api/comments', commentRoute);     // Shared comment APIs
 app.use('/api/settings', settingsRoutes);
 app.use('/api/users',userRoute);
-
+app.use("/api/icu", icuDashboardRoutes);
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
