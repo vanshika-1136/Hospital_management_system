@@ -6,10 +6,21 @@ import { getICUPatients,icusWithHead
   deleteIcu,
    getIcuHeads 
  } from '../controllers/icuHeadController.js';
+ import {
+  getICUDashboard,
+} from "../controllers/icu.dashboard.controller.js";
 import { verifyToken } from '../middlewares/authMiddleware.js';
 
 
 const router = express.Router();
+
+router.get(
+  "/dashboard",
+  verifyToken,
+  getICUDashboard
+);
+
+
 router.get('/icu-patients', verifyToken, getICUPatients);
 // router.post('/add-comment',verifyToken, addPatientComment);
 router.get('/icus-with-heads',icusWithHead);
