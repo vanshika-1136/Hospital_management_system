@@ -246,13 +246,6 @@ npm run dev
 
 ---
 
-## 🌐 Live Demo
-
-🔗 **Live Application:**  
-https://hospital-management-system-xi-steel.vercel.app/login
-
----
-
 ## 🎯 Key Learning Outcomes
 
 Through this project, I gained practical experience in:
