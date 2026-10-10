@@ -262,6 +262,13 @@ Through this project, I gained practical experience in:
 
 ---
 
+## 🌐 Live Demo
+
+🔗 *Live Application:*  
+https://hospital-management-system-xi-steel.vercel.app/login
+
+---
+
 ## 🔮 Future Improvements
 
 - Appointment scheduling
